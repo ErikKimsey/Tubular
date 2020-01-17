@@ -15,13 +15,17 @@ public class RollerController : MonoBehaviour {
   Rigidbody roller;
 
   private void Start() {
-    moveHorizontal = Input.GetAxis("Horizontal");
-    moveVertical = Input.GetAxis("Vertical");
     roller = GetComponent<Rigidbody>();
-    movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
+      Physics.gravity = new Vector3(0, 1.0F, 0);
   }
-  private void FixedUpdate() {
-    transform.position += Vector3.forward * Time.deltaTime * speed;
-  }
+  void FixedUpdate ()
+    {
+        float moveHorizontal = Input.GetAxis ("Horizontal");
+        float moveVertical = Input.GetAxis ("Vertical");
+
+        Vector3 movement = new Vector3 (moveHorizontal, 0.0f, moveVertical);
+
+        roller.AddForce (movement * speed);
+    }
 
 }
