@@ -6,7 +6,7 @@ public class CameraController : MonoBehaviour
 {
     // Start is called before the first frame update
   public GameObject roller;
-  private Vector3 offset;
+  public Vector3 offset;
 
     void Start()
     {
